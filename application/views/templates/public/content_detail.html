@@ -1,0 +1,100 @@
+<div class="zui section space-50">
+		<div class="inner">
+			<div class="content-with-sidebar">
+
+				<div class="the-content">
+
+					<div class="the-ad-single">
+						<div class="the-ad-single-title">
+							<h1>{$detail->judul}</h1>
+							<div class="subheading">
+								<span><a href="#" class="the-ad-author">{$detail->id_member->nama}</a></span>
+								<span><i class="icon fa fa-calendar"></i> {$detail->created_at}</span>
+							</div>
+						</div>
+
+						<div class="the-ad-photo"><img src="{assets_url()}uploads/images/{$detail->foto}" alt=""  style="width:100%" /></div>
+
+						<div class="the-ad-content">
+							<div class="row">
+								<div class="col-md-3 col-sm-6">
+									<div class="sum">
+										<div class="number price">Rp {$detail->harga}</div>
+									</div>
+								</div>
+							</div>
+							<div class="specs-section">
+								<div class="the-ad-description">
+									<h4>Description</h4>
+									<p>{$detail->deskripsi}</p>
+				
+								</div> <!-- .ad-description -->
+							</div>
+						</div>
+					</div> <!-- .ad-single -->
+
+					<div class="contact-seller">
+						<h3>Contact the seller</h3>
+						<div class="row">
+							<div class="col-sm-5">
+								<div class="zui form-label">Your name</div>
+								<input type="text" name="name" class="fullwidth" />
+							</div>
+							<div class="col-sm-7">
+								<div class="zui form-label">Your email</div>
+								<input type="text" name="email" class="fullwidth" />
+							</div>
+							<div class="col-sm-12">
+								<div class="zui form-label">Message</div>
+								<textarea class="normal"></textarea>
+								<div class="zui form-description">Ask the seller everything you what to know about this ad.</div>
+							</div>
+							<div class="col-12">
+								<br><input type="submit" name="submit" value="Send message" />
+							</div>
+						</div>
+					</div>
+
+				</div> <!-- .the-content -->
+
+				<div class="the-sidebar">
+					<div class="widget">
+						<h3 class="widget-title">Category</h3>
+						<div class="widget-content">
+							<ul class="widget-category">
+							{foreach from=$categories item=cat}
+								<li><a href="{base_url()}iklan/kategori/{$cat->id}">{$cat->nama}</a></li>
+							{/foreach}				
+							</ul>
+						</div>
+					</div>
+
+					<div class="widget">
+						<h3 class="widget-title">Recently viewed</h3>
+						<div class="widget-content">
+							<div class="widget-ads-list">
+								
+								{foreach from=$related item=prod}
+									<div class="w-ad-item">
+										<div class="row smallgutter row-sm-middle">
+											<div class="col-xs-3">
+												<a href="#"><img src="{assets_url()}uploads/images/{$prod->foto}" alt="" /></a>
+											</div>
+											<div class="col-xs-9">
+												<a href="#" class="title">{$prod->judul}</a>
+												<span class="zui mark red">Rp {$prod->harga}</span>
+											</div>
+										</div>
+									</div>
+								{/foreach}
+
+							</div>
+						</div>
+					</div>
+					
+				</div> <!-- .the-sidebar -->
+
+			</div> <!-- .content-with-sidebar -->
+
+		</div>
+	</div>

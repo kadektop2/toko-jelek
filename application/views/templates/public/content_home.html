@@ -1,0 +1,67 @@
+	<!-- content -->
+	<div class="zui section space-150 bg-dark-accent">
+		<div class="inner narrow">
+			
+			<form action="{base_url()}iklan/search/" method="post">
+				<div class="big-search-main-title">
+					<h5>Apa yang anda perlukan ? Cari disini ...</h5>
+				</div>
+				<div class="big-search-field">
+					<input type="text" value="" name="keyword" placeholder="iPhone 10" />
+				</div>
+				<div class="big-search-buttons row">
+					<div class="col-sm-5">
+						
+					</div>
+					<div class="col-sm-4">
+						
+					</div>
+					<div class="col-sm-3">
+						<button class="zui button big-search-button" type="submit" name="btn_search">Find for me</button>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+
+	<!-- hot ads -->
+	<div class="zui section bg-light space-top30 bg-dark-accent-plus" name="semua_iklan">
+		<div class="inner">
+				
+			<div class="section-title center">
+				<h3>Semua Iklan</h3>
+			</div>
+
+		</div>
+	</div>
+
+
+	<div class="zui section space-50 bg-light bg-dark-accent-plus">
+		<div class="inner">
+			
+			<div class="row row-md-4-columns row-sm-3-columns row-xs-2-columns">
+				{foreach from=$iklan item=ik}
+				<div class="col">
+					<div class="ad-style-grid">
+						<a href="{base_url()}iklan/detail/{$ik->id}" class="photo">
+							<img src="{assets_url()}/uploads/images/{$ik->foto}" alt="" />
+							<div class="meta">
+								<span class="price">Rp {$ik->harga}</span>
+							</div>
+						</a>
+						<h3 class="title"><a href="#">{$ik->judul}</a></h3>
+						<div class="category subheading">from <a href="{base_url()}member/index/{$ik->id_member->id}">{$ik->id_member->nama}</a></div>
+					</div>
+				</div>
+				{/foreach}
+				
+			</div>
+
+		</div>
+	</div>
+
+	<!-- end hot ads -->
+	<!-- end company -->
